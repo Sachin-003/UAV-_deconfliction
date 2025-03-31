@@ -27,10 +27,10 @@ pip install numpy matplotlib fpdf bezier
 
 ## Project Structure
 ```bash
-├── README.md                           # Project documentation
-├── waypoints.json                      # JSON file containing drone waypoints data
-├── waypoints_temporal_vis.json         # JSON file containing drone waypoints data (For temporal conflicts)
-├── drone_sim.py                        # Main script for detecting and visualizing conflicts
+├── README.md                # Project documentation
+├── waypoints.json           # JSON file containing drone waypoints data
+├── waypoints_temporal_vis.json # JSON file containing drone waypoints data (For temporal conflicts)
+├── drone_sim.py             # Main script for detecting and visualizing conflicts
 ```
 
 ## Usage
@@ -63,15 +63,16 @@ Once the JSON file is prepared, you can run the script to generate the 3D visual
 python3 drone_sim.py
 ```
 
-### 3. Conflict Report
-After running the script, a PDF file (`conflict_report.pdf`) will be generated. This report contains:
-- **Spatial Conflicts**: Drones that come too close to each other.
-- **Temporal Conflicts**: Drones that occupy the same position at the same time.
+## Adjusting Parameters
+You can modify the `SAFETY_DISTANCE` and `TIME_STEPS` in `drone_sim.py` to customize the conflict detection and animation speed:
 
-### 4. 3D Animation
-The project uses `matplotlib` to animate the drone paths in 3D space. During the animation, the drones' paths are shown, and any conflicts are visually highlighted by changing their color at the time of conflict.
+```python
+# Constants
+SAFETY_DISTANCE = 2  # meters (Minimum distance to avoid spatial conflicts)
+TIME_STEPS = 100  # Number of animation frames
+```
 
-## Example Output
-- A **PDF conflict report** that lists all detected spatial and temporal conflicts.
-- A **3D animated plot** that shows the drones' paths and visualizes conflicts by changing their color at the time of conflict.
+- **SAFETY_DISTANCE**: Increase this value to make the conflict detection stricter (drones will need to be farther apart).
+- **TIME_STEPS**: Increase this value for a smoother animation with more frames.
 
+Modify these values according to your simulation requirements before running the script.
