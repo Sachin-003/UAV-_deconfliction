@@ -75,9 +75,8 @@ During the 3D visualization:
 
 ## Video Demonstration
 
-You can add a video demonstration of the visualization here:
 
-![Visualization Video](video_link_here)
+https://github.com/user-attachments/assets/f5e7da67-d25c-4c63-a5a1-fdcf717449a7
 
 ---
 
