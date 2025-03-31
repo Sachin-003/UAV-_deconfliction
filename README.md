@@ -13,14 +13,6 @@ This project simulates drone flight paths and detects conflicts between them, in
 
 To run this project, the following Python libraries are required:
 
-- `numpy`
-- `json`
-- `matplotlib`
-- `fpdf`
-- `bezier`
-
-You can install the necessary dependencies by running:
-
 ```bash
 pip install numpy matplotlib fpdf bezier
 ```
@@ -29,11 +21,12 @@ pip install numpy matplotlib fpdf bezier
 ```bash
 ├── README.md                # Project documentation
 ├── waypoints.json           # JSON file containing drone waypoints data
-├── waypoints_temporal_vis.json # JSON file containing drone waypoints data (For temporal conflicts)
+├── waypoints_temporal_vis.json # JSON file for temporal conflict visualization
 ├── drone_sim.py             # Main script for detecting and visualizing conflicts
 ```
 
 ## Usage
+
 ### 1. Prepare the Waypoints JSON File
 The waypoints for the primary drone and other drones should be specified in a JSON file (`waypoints.json`). The file should follow this structure:
 
@@ -56,23 +49,36 @@ The waypoints for the primary drone and other drones should be specified in a JS
 }
 ```
 
-### 2. Run the Script
+### 2. Adjust Safety Distance and Time Steps
+
+To customize the **safety distance** (for spatial conflicts) and **time step resolution**, modify the following variables in `drone_sim.py`:
+
+```python
+SAFETY_DISTANCE = 5  # Minimum distance (in meters) between drones to avoid spatial conflicts
+TIME_STEP_RESOLUTION = 1  # Time granularity for conflict detection
+```
+
+### 3. Run the Script
+
 Once the JSON file is prepared, you can run the script to generate the 3D visualization and detect conflicts:
 
 ```bash
 python3 drone_sim.py
 ```
 
-## Adjusting Parameters
-You can modify the `SAFETY_DISTANCE` and `TIME_STEPS` in `drone_sim.py` to customize the conflict detection and animation speed:
+## Conflict Visualization
 
-```python
-# Constants
-SAFETY_DISTANCE = 2  # meters (Minimum distance to avoid spatial conflicts)
-TIME_STEPS = 100  # Number of animation frames
-```
+During the 3D visualization:
+- **Yellow Points**: Indicate spatial conflicts (when drones are too close to each other)
+- **Violet Points**: Represent temporal conflicts (when drones reach the same position at the same time)
+- **Primary Drone (Highlighted Path)**: The main drone's flight path is emphasized for clarity
 
-- **SAFETY_DISTANCE**: Increase this value to make the conflict detection stricter (drones will need to be farther apart).
-- **TIME_STEPS**: Increase this value for a smoother animation with more frames.
+## Video Demonstration
 
-Modify these values according to your simulation requirements before running the script.
+You can add a video demonstration of the visualization here:
+
+![Visualization Video](video_link_here)
+
+---
+
+Let me know if you need any further modifications! 🚀
