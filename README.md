@@ -1,4 +1,4 @@
-# Drone Conflict Detection and Visualization
+# UAV Strategic Deconfliction in Shared Airspace
 
 This project simulates drone flight paths and detects conflicts between them, including both spatial and temporal conflicts. It visualizes these conflicts in a 3D animation and generates a detailed conflict report.
 
